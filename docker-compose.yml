@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  api:
+    image: api:latest
+    container_name: api
+    build:
+      context: api/.
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - backend-net
+    environment:
+      API_DATA_HOST: data
+
+  data:
+    image: data:latest
+    container_name: data
+    build:
+      context: data/.
+      dockerfile: Dockerfile
+    networks:
+      - backend-net
+      - postgres-net
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/docker_example
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+
+  db:
+    image: postgres:latest
+    container_name: db
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: docker_example
+    ports:
+      - "5433:5432"
+    networks:
+      - postgres-net
+
+networks:
+  backend-net:
+    name: backend-net
+  postgres-net:
+    name: postgres-net
