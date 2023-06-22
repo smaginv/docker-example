@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/de"
+    username: "user"
+    password: "password"
+
+  sql:
+    init:
+      mode: always
+
+  jpa:
+    open-in-view: false
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        highlight_sql: true
+        use_sql_comments: true
+        types.print.banner: false
+
+server:
+  port: 8080
+  servlet:
+    context-path: "/api"
+
+logging:
+  level:
+    ru.smaginv.repository: debug
+    org.hibernate.orm.jdbc.bind: trace
+    org.springframework.web.servlet: debug
+  charset:
+    console: UTF-8
+  pattern:
+    console: "%d{HH:mm:ss} %clr(%5p) %-65.65(%clr(%logger{50}){cyan}) : %msg%n"
