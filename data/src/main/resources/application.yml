@@ -23,13 +23,13 @@ spring:
         types.print.banner: false
 
 server:
-  port: 8080
+  port: 8081
   servlet:
-    context-path: "/api"
+    context-path: "/data"
 
 logging:
   level:
-    ru.smaginv.repository: debug
+    ru.smaginv.data: debug
     org.hibernate.orm.jdbc.bind: trace
     org.springframework.web.servlet: debug
   charset:

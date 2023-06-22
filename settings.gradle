@@ -1,3 +1,4 @@
 rootProject.name = 'docker-example'
 
+include 'api'
 include 'data'
