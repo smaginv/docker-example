@@ -7,7 +7,7 @@ This simple crud application is designed to demonstrate configuration and launch
 ### Project structure:
 
 ```
-docker-example  
+spring-boot-docker  
 ├── api (subproject)  
 │   ├── src    
 │   ├── build.gradle  
@@ -26,7 +26,7 @@ docker-example
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/smaginv/docker-example.git && cd docker-example
+git clone https://github.com/smaginv/spring-boot-docker.git && cd spring-boot-docker
 ```
 
 **2. Build project using Gradle**
